@@ -2,9 +2,13 @@ let x = NaN;
 let y = NaN;
 let scoreJ = 0;
 let scoreBot = 0;
+let scoreRoundJ = 0;
+let scoreRoundBot = 0;
 let message = document.querySelector(".annonce");
 let resultJ = document.querySelector(".scoreJoueur");
 let resultBot = document.querySelector(".scoreIA");
+let roundJ = document.querySelector(".roundJoueur");
+let roundBot = document.querySelector(".roundIA");
 
 function myFunction(Cartes) {
 	x = Cartes.id;
@@ -56,10 +60,28 @@ function myFunction(Cartes) {
 	if (scoreJ === 3 || scoreBot === 3) {
 		if(scoreJ === 3) {
 			message.innerHTML = "Le joueur remporte la partie!!";
+			scoreRoundJ += 1;
+			roundJ.innerHTML = "Joueur: " + scoreRoundJ;
 		}
 		else {
 			message.innerHTML = "L'IA remporte la partie!!";
+			scoreRoundBot += 1;
+			roundBot.innerHTML = "IA: " + scoreRoundBot;
 		}
+		scoreJ = 0;
+		scoreBot = 0;
 	}
 
+}
+
+function functionReset() {
+	scoreJ = 0;
+	scoreBot = 0;
+	scoreRoundJ = 0;
+	scoreRoundBot = 0;
+	message.innerHTML = "Faîtes votre choix!";
+	resultJ.innerHTML = "Joueur: " + scoreJ;
+    resultBot.innerHTML = "IA: " + scoreBot;
+	roundJ.innerHTML = "Joueur: " + scoreRoundJ;
+	roundBot.innerHTML = "IA: " + scoreRoundBot;
 }

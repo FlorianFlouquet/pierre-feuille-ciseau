@@ -2,17 +2,27 @@
 <header>
     <title></title>
     <style>
+        body {
+            background-color: #a3a3c2;
+        }
         .container {
-            height: 200px;
-            width: 1000px;
-            display: flex;
+            height: 220px;
             position: absolute;
-            justify-content: space-between;
+            width: 100%;
+            margin-left: -8px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #666699;
         }
         .choices {
+            background-color: #a3a3c2;
+            border: none;
+            border-radius: 25px;
             position: relative;
-            height: all;
-            width: 300px;
+            height: 170px;
+            width: 200px;
+            min-width: 100px;
         }
         .annonce {
             padding-top: 250px;
@@ -24,6 +34,16 @@
             position: absolute;
             padding-left: 80px;
         }
+        .roundJoueur {
+            position: absolute;
+        }
+        .roundIA {
+            position: absolute;
+            padding-left: 80px;
+        }
+        .reset {
+            padding-top: 45px;
+        }
     </style>
 </header>
 <html>
@@ -33,9 +53,15 @@
             <button class="choices" onclick="myFunction(this)" id="Pierre">Pierre</button>
             <button class="choices" onclick="myFunction(this)" id="Feuille">Feuille</button>
         </div>
-        <div class="annonce">Yo!</div>
+        <div class="annonce">Faîtes votre choix!</div>
         <div class="scoreJoueur">Joueur: 0</div>
         <div class="scoreIA">IA: 0</div>
+        <div style="padding-top: 30px">Nombre de BO3 gagné: </div>
+        <div class="roundJoueur">Joueur: 0</div>
+        <div class="roundIA">IA: 0</div>
+        <div class="reset">
+            <button style="background-color: #666699; color: white" onclick="functionReset()">Réinitialiser</button>
+        </div>
     </body>
     <script src="pfc.js"></script>
 </html>
