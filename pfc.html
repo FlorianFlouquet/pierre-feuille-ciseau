@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <header>
-    <title></title>
+    <title>JankenPaum</title>
     <style>
         body {
             background-color: #a3a3c2;
         }
-        .container {
-            height: 220px;
-            position: absolute;
+        button:hover {
+            border: 2px solid white;
+            color: white;
+        }
+        .containerChoices {
+            height: 50%;
             width: 100%;
+            position: absolute;
             margin-left: -8px;
             display: flex;
             justify-content: space-around;
@@ -17,7 +21,7 @@
         }
         .choices {
             background-color: #a3a3c2;
-            border: none;
+            border: 0px;
             border-radius: 25px;
             position: relative;
             height: 170px;
@@ -25,43 +29,141 @@
             min-width: 100px;
         }
         .annonce {
-            padding-top: 250px;
+            padding-top: 400px;
+        }
+        .scoreboard {
+            display: grid;
+            width: 100%;
+            text-align: center;
+            grid-template-columns: 3fr 1fr 1fr 3fr;
+            grid-template-areas: 
+            'title title title title'
+            'joueur scorej scoreia ia'
+            'roundj timer timer roundia'
+        }
+        .scoreboardTitle {
+            grid-area: title;
+            width: 350px;
+            height: 35px;
+            background-color: white;
+            margin-left: 38.3%;
+            font-size: 200%;
+            border: 3px solid #29293d;
+            border-bottom: 2px solid #29293d;
+        }
+        .timer {
+            grid-area: timer;
+        }
+        .nomJoueur {
+            grid-area: joueur;
+            border: 4px solid #29293d;
+            border-right: none;
+            border-top-left-radius: 35%;
         }
         .scoreJoueur {
-            position: absolute;
+            grid-area: scorej;
+            height: 100px;
+            background-color: grey;
+            border: 4px solid #29293d;
+            border-right: 10px solid #29293d;
+            color: white;
+            font-size: 450%;
+        }
+        .nomIA {
+            grid-area: ia;
+            border: 4px solid #29293d;
+            border-left: none;
+            border-top-right-radius: 35%;
         }
         .scoreIA {
-            position: absolute;
-            padding-left: 80px;
+            grid-area: scoreia;
+            background-color: grey;
+            border: 4px solid #29293d;
+            border-left: 10px solid #29293d;
+            color: white;
+            font-size: 450%;
         }
         .roundJoueur {
-            position: absolute;
+            grid-area: roundj;
         }
         .roundIA {
-            position: absolute;
-            padding-left: 80px;
+            grid-area: roundia;
         }
         .reset {
-            padding-top: 45px;
+            padding-top: 400px;
+        }
+        .couldown {
+            height: 20px;
+            width: 50px;
+            border: 3px solid #29293d;
+            border-top: 4px solid #29293d;
+            margin-left: 43%;
+            margin-top: -4px;
+            background-color: white;
+            z-index: 1;
+        }
+        .roundCountJ {
+            height: 30px;
+            width: 350px;
+            padding-top: 5px;
+            background-color: white;
+            border: 3px solid #29293d;
+            border-top: none;
+            font-size: 135%;
+            margin-left: 5%;
+        }
+        .roundCountIA {
+            height: 30px;
+            width: 350px;
+            padding-top: 5px;
+            background-color: white;
+            border: 3px solid #29293d;
+            border-top: none;
+            font-size: 135%;
+            margin-left: 31%;
+        }
+        .nom {
+            margin-top: 15px;
+            font-size: 350%;
         }
     </style>
 </header>
 <html>
     <body>
-        <div class="container">
-            <button class="choices" onclick="myFunction(this)" id="Ciseau">Ciseau</button>
-            <button class="choices" onclick="myFunction(this)" id="Pierre">Pierre</button>
-            <button class="choices" onclick="myFunction(this)" id="Feuille">Feuille</button>
+        <div class="scoreboard">
+            <div class="scoreboardTitle">
+                <div style="background-color: white">ROUND 0</div>
+            </div>
+            <div class="nomJoueur">
+                <div class="nom">Joueur</div>
+            </div>
+            <div class="scoreJoueur">
+                <div style="padding-top: 10px">0</div>
+            </div>
+            <div class="scoreIA">
+                <div style="padding-top: 10px">0</div>
+            </div>
+            <div class="nomIA">
+                <div class="nom">I.A.</div>
+            </div>
+            <div class="roundJoueur">
+                <div class="roundCountJ">Round gagné: 0</div>
+            </div>
+            <div class="timer">
+                <div class="couldown">05</div>
+            </div>
+            <div class="roundIA">
+                <div class="roundCountIA">Round gagné: 0</div>
+            </div>
+        </div>
+        <div>
+            <div class="containerChoices">
+                <button class="choices" onclick="myFunction(this)" id="Ciseau">Ciseau</button>
+                <button class="choices" onclick="myFunction(this)" id="Pierre">Pierre</button>
+                <button class="choices" onclick="myFunction(this)" id="Feuille">Feuille</button>
+            </div>
         </div>
         <div class="annonce">Faîtes votre choix!</div>
-        <div class="scoreJoueur">Joueur: 0</div>
-        <div class="scoreIA">IA: 0</div>
-        <div style="padding-top: 30px">Nombre de BO3 gagné: </div>
-        <div class="roundJoueur">Joueur: 0</div>
-        <div class="roundIA">IA: 0</div>
-        <div class="reset">
-            <button style="background-color: #666699; color: white" onclick="functionReset()">Réinitialiser</button>
-        </div>
     </body>
     <script src="pfc.js"></script>
 </html>
