@@ -1,5 +1,6 @@
 let x = NaN;
 let y = NaN;
+let round = 1;
 let scoreJ = 0;
 let scoreBot = 0;
 let scoreRoundJ = 0;
@@ -9,6 +10,8 @@ let resultJ = document.querySelector(".scoreJoueur > div");
 let resultBot = document.querySelector(".scoreIA > div");
 let roundJ = document.querySelector(".roundCountJ");
 let roundBot = document.querySelector(".roundCountIA");
+let roundNumber = document.querySelector(".scoreboardTitle")
+
 
 function myFunction(Cartes) {
 	x = Cartes.id;
@@ -70,6 +73,8 @@ function myFunction(Cartes) {
 		}
 		scoreJ = 0;
 		scoreBot = 0;
+        round += 1;
+        roundNumber.innerHTML = "ROUND " + round;
 	}
 
 }
@@ -84,4 +89,20 @@ function functionReset() {
     resultBot.innerHTML = scoreBot;
 	roundJ.innerHTML = "Round gagné: " + scoreRoundJ;
 	roundBot.innerHTML = "Round gagné: " + scoreRoundBot;
+}
+
+// Le chrono
+
+let timer = document.querySelector("#demo");
+        let t = 5;
+
+function countdown() {
+    if (t >= 0) {
+        timer.innerHTML = "0" + t;
+        t -= 1;
+    }
+
+    else {
+        t = 5;
+    }
 }

@@ -8,12 +8,18 @@
         button:hover {
             border: 2px solid white;
             color: white;
+            opacity: 70%;
+        }
+        img {
+            height: 140px;
+            width: 160px;
         }
         .containerChoices {
             height: 50%;
             width: 100%;
             position: absolute;
             margin-left: -8px;
+            margin-top: 15PX;
             display: flex;
             justify-content: space-around;
             align-items: center;
@@ -131,8 +137,8 @@
 <html>
     <body>
         <div class="scoreboard">
-            <div class="scoreboardTitle">
-                <div style="background-color: white">ROUND 0</div>
+            <div class="scoreboardTitle" style="background-color: white">
+                ROUND 1
             </div>
             <div class="nomJoueur">
                 <div class="nom">Joueur</div>
@@ -150,7 +156,7 @@
                 <div class="roundCountJ">Round gagné: 0</div>
             </div>
             <div class="timer">
-                <div class="couldown">05</div>
+                <div class="couldown" id="demo">05</div>
             </div>
             <div class="roundIA">
                 <div class="roundCountIA">Round gagné: 0</div>
@@ -158,12 +164,20 @@
         </div>
         <div>
             <div class="containerChoices">
-                <button class="choices" onclick="myFunction(this)" id="Ciseau">Ciseau</button>
-                <button class="choices" onclick="myFunction(this)" id="Pierre">Pierre</button>
-                <button class="choices" onclick="myFunction(this)" id="Feuille">Feuille</button>
+                <button class="choices" onclick="myFunction(this)" id="Ciseau">
+                    <img alt="hand scissors icon" src="https://img.icons8.com/ios/452/hand-scissors.png">
+                </button>
+                <button class="choices" onclick="myFunction(this)" id="Pierre">
+                    <img src="https://img.icons8.com/ios/452/hand-rock.png" alt="hand rock icon">
+                </button>
+                <button class="choices" onclick="myFunction(this)" id="Feuille">
+                    <img src="https://img.icons8.com/ios/452/hand.png" alt="hand paper icon">
+                </button>
             </div>
         </div>
         <div class="annonce">Faîtes votre choix!</div>
+        <button onclick="myVar= setInterval(countdown, 1000)">Start</button>
+        <button onclick="clearInterval(myVar)">Stop</button>
     </body>
     <script src="pfc.js"></script>
 </html>
